@@ -1,0 +1,12 @@
+{
+  "app_embeds": {
+    "language_switcher": {
+      "name": "Editor language switcher (app embed)",
+      "aria_label": "Preview language selector (editor only)",
+      "badge": "Editor only",
+      "title": "Preview language",
+      "language_label": "Language",
+      "apply": "Apply"
+    }
+  }
+}

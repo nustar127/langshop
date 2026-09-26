@@ -1,0 +1,47 @@
+<div
+  id="app-embedded-language-switcher"
+  class="app-embedded-language-switcher"
+  aria-label="{{ 'app_embeds.language_switcher.aria_label' | t }}"
+  role="group"
+>
+  <div class="app-embedded-language-switcher__card">
+    {% form 'localization', id: 'app-embedded-language-switcher-form' %}
+      <label class="app-embedded-language-switcher__label" for="app-embedded-language-select">
+        {{ 'app_embeds.language_switcher.language_label' | t }}
+      </label>
+      <div class="app-embedded-language-switcher__row">
+        <div class="app-embedded-language-switcher__select-wrap">
+          <select
+            id="app-embedded-language-select"
+            name="locale_code"
+            class="app-embedded-language-switcher__select"
+          >
+            {% for locale in localization.available_languages %}
+              <option
+                value="{{ locale.iso_code }}"
+                {% if locale.iso_code == localization.language.iso_code %}
+                  selected
+                {% endif %}
+              >
+                {{ locale.endonym_name }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <button class="app-embedded-language-switcher__button">
+          {{ 'app_embeds.language_switcher.apply' | t }}
+        </button>
+      </div>
+    {% endform %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:app_embeds.language_switcher.name",
+  "target": "body",
+  "stylesheet": "switcher.css",
+  "settings": []
+}
+{% endschema %}
